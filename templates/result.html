@@ -16,13 +16,12 @@
       <table border=2>
             <th > Date </th>
             <th > Price($) </th>
-         {% for key,value  in result.iteritems() %}
-            <tr>
-               <td > {{ key }} </td>
-               <td ><center> {{ value }} <center></td>
-            </tr>
-            
-         {% endfor %}
+               {% for key0 in ind %} 
+                  <tr> 
+                       <td>{{ result[0][key0] }} </td> 
+                       <td>{{ result[1][key0] }} </td> 
+                  </tr>
+               {% endfor %}
       </table>
    </body>
 </html>
