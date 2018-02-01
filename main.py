@@ -1,5 +1,5 @@
 from flask import * 
-import numpy, pandas 
+import numpy, pandas, sklearn 
 from model_lin_reg import regression_model
 from built_dictionary import generateTable
 
