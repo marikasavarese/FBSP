@@ -57,9 +57,9 @@ for i in range(len(y_3d)):
 
 MAE=np.round(metrics.mean_absolute_error(y, y_pred_full),decimals=2)  
 RMSE=np.round(np.sqrt(metrics.mean_squared_error(y, y_pred_full)),decimals=2)
+score = metrics.r2_score(y, y_pred_full)
+print("score", score)
 sss = np.reshape(MAE,(1,1))
-ddd = np.reshape(RMSE, (1,1))
-print(sss.shape)
-print(y_3d.shape)
+ddd = np.reshape(score, (1,1))
 ddd = np.concatenate((y_3d, sss,ddd), axis=0)
 print(ddd)

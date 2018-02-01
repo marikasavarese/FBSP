@@ -9,8 +9,9 @@
          {% for value in pred[0] %} <p class="dayp"> Day 1: {{value}} $</p>{% endfor %}
          {% for value in pred[1] %} <p class="dayp"> Day 2: {{value}} $</p>{% endfor %}
          {% for value in pred[2] %} <p class="dayp"> Day 3: {{value}} $</p>{% endfor %}
-         {% for value in pred[3] %} <p><b>Mean Average Error:</b> {{value}} $</p>{% endfor %}
-	 {% for value in pred[4] %} <p><b>Root Mean Square Error:</b>{{value}} $</p>{% endfor %}
+         {% for value in pred[3] %} <p><b>Mean Average Error: </b> {{value}} $</p>{% endfor %}
+	 {% for value in pred[4] %} <p><b>Variance Score associated to the model : </b>{{value}} </p>{% endfor %}
+	 <p>Explained variance score: 1 is perfect prediction </p>
 	 <p id="note">*Predictions based on the daily closing price</p>
          </div>
       </div>
