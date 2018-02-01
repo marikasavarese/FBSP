@@ -22,3 +22,16 @@ background:DodgerBlue;
 .dayp{
 background : White;
 }
+
+#note{
+font-size : 10px;
+}
+
+.header{
+background :#8ec7ff;
+}
+
+.cell{
+text-align: center;
+border :none;
+}
