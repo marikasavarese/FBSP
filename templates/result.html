@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<link rel="stylesheet" type="text/css" href="{{url_for("static", filename="style2.css") }} ">   
+   <body>
+      <h1>Facebook stock option prices trend</h1>
+      <div id="prediction">
+         <h2>Prediction for next 3 days</h2>
+         <div id=day>
+         {% for value in pred[0] %} <p class="dayp"> Day 1: {{value}} $</p>{% endfor %}
+         {% for value in pred[1] %} <p class="dayp"> Day 2: {{value}} $</p>{% endfor %}
+         {% for value in pred[2] %} <p class="dayp"> Day 3: {{value}} $</p>{% endfor %}
+         {% for value in pred[3] %} <p><b>Mean Average Error:</b> {{value}} $</p>{% endfor %}
+	 {% for value in pred[4] %} <p><b>Root Mean Square Error:</b>{{value}} $</p>{% endfor %}
+         </div>
+      </div>
+      <table border=2>
+            <th > Date </th>
+            <th > Price($) </th>
+         {% for key,value  in result.iteritems() %}
+            <tr>
+               <td > {{ key }} </td>
+               <td ><center> {{ value }} <center></td>
+            </tr>
+            
+         {% endfor %}
+      </table>
+   </body>
+</html>

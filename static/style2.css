@@ -1,0 +1,24 @@
+body{
+   background : White;
+}
+
+h1 {
+    color :Blue;
+}
+
+div#prediction{
+text-align: center;
+float:right;
+background:DodgerBlue; 
+width:50%;
+margin-left:-50%;
+}
+
+
+div#day{
+background:DodgerBlue; 
+}
+
+.dayp{
+background : White;
+}
