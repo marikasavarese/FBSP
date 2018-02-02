@@ -10,8 +10,7 @@ def result():
     test =generateTable()
     predicted = [] 
     predicted = regression_model()
-    indexes   = (list(range(0,250)))
-    return render_template('result.html', result=test, pred=predicted, ind=indexes)
+    return render_template('result.html', result=test, pred=predicted)
 
 if __name__ == '__main__':
    app.run(debug = True)

@@ -6,20 +6,23 @@ def generateTable():
 
     pdData = pd.read_csv(URL, parse_dates=['Date'])
 
-    table = [[],[]]
+    table = [[],[],[]]
 
     #set the X data
     X_list = []
     X = pdData["Date"]
+    i=0
     for ele in X:
         d = ele.strftime('%Y.%m.%d')
-        table[0].append(d)
+        table[0].append(i)
+        table[1].append(d)
+        i+=1
 
     #set the y data
     y_list = []
     y = pdData["Close"]
     for ele in y:
-        table[1].append(round(float(ele),2))
+        table[2].append(round(float(ele),2))
 
 
     return table

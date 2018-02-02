@@ -18,10 +18,10 @@
       <table border=2>
             <th class="header"> Date </th>
             <th class="header"> Closing Price($) </th>
-               {% for key0 in ind %} 
+               {% for key0 in result[0] %} 
                   <tr> 
-                       <td class="cell">{{ result[0][key0] }} </td> 
                        <td class="cell">{{ result[1][key0] }} </td> 
+                       <td class="cell">{{ result[2][key0] }} </td> 
                   </tr>
                {% endfor %}
       </table>
