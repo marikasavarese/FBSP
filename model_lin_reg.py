@@ -56,10 +56,12 @@ def regression_model():
     for i in range(len(y_3d)):
         y_3d[i] =round(float(y_3d[i]),2)
     
-#   remove comment if you want to compute the RMSE
+#   remove comment if you want to compute the RMSE=root mean square error
 #   RMSE=np.round(np.sqrt(metrics.mean_squared_error(y, y_pred_full)),decimals=2)
 #   RMSE=np.reshape(RMSE,(1,1))
+#MAE=mean average error
     MAE=np.round(metrics.mean_absolute_error(y, y_pred_full),decimals=2)
+#score is a method of metrics which computes the r2 the coefficient of determination for a linear regression
     SCORE=np.round(metrics.r2_score(y, y_pred_full),decimals=2)
     MAE=np.reshape(MAE,(1,1))
     SCORE=np.reshape(SCORE,(1,1))
