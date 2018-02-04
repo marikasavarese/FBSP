@@ -66,7 +66,7 @@ class Linear_regression:
        #   remove comment if you want to compute the RMSE=root mean square error
        #   RMSE=np.round(np.sqrt(metrics.mean_squared_error(y, y_pred_full)),decimals=2)
        #   RMSE=np.reshape(RMSE,(1,1))
-       return y, y_pred_full
+       return y
     def MAE(LinPred_3d):
        #MAE=mean average error
        MAE=np.round(metrics.mean_absolute_error(y, y_pred_full),decimals=2)

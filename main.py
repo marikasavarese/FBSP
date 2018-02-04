@@ -12,10 +12,7 @@ app = Flask(__name__)
 @app.route('/result')
 def result():
     mydata = data(url)
-    test =mydata.import_data()
-    predicted = [] 
-    predicted = regression_model()
-    return render_template('result.html', result=test, pred=predicted)
+    return render_template('result.html', result=mydata.importData(), pred=regression_model(), url=Markup(url))
 
 if __name__ == '__main__':
    app.run(debug = True)

@@ -6,11 +6,12 @@ class data:
     def __init__(self, URL):
        self.URL = URL 
 
-    def importAlldata(self):
-       return  pd.read_csv(self.URL,parse_dates=['Date'])
+    def import_alldata(self):
+       allData=pd.read_csv(self.URL,parse_dates=['Date'])
+       return allData
 
-    def importData(self):
-       allData=self.importAlldata()
+    def import_data(self):
+       allData=pd.read_csv(self.URL,parse_dates=['Date'])
        X = allData['Date'].tolist()
        y = allData['Close'].tolist()
        ind = list(range(0, len(allData)))
@@ -21,4 +22,3 @@ class data:
            table[2].append((round(float(y[i]),2)))
        return table
            
-
