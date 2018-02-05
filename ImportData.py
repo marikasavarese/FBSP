@@ -12,7 +12,7 @@ class data:
       return URL.replace('[month]', str(mydataservice.getCurrentMonth())).replace('[year]', str(mydataservice.getCurrentYear()))
 
     def importAlldata(self):
-       return  pd.read_csv(self.getCurrentURL(URL),parse_dates=['Date'])
+       return  pd.read_csv(self.getCurrentURL(self.URL),parse_dates=['Date'])
 
     def importData(self):
        allData=self.importAlldata()
