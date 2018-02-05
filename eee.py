@@ -3,11 +3,11 @@ import numpy as np
 from sklearn.cross_validation import train_test_split 
 from sklearn.linear_model import LinearRegression
 from sklearn import metrics
+URL="http://markets.financialcontent.com/stocks/action/gethistoricaldata?Symbol=537%3A14917609&Month=1&Range=12&Year=2018"
 
-
-class LRegression:
+class LRegression():
     def __init__(self, URL):
-       self.URL = URL
+       self.URL =URL
 
     def importAlldata(self):
        return  pd.read_csv(self.URL,parse_dates=['Date'])
@@ -37,8 +37,8 @@ class LRegression:
     def model3d(self):
        linreg=LinearRegression()
        linreg.fit(self.setX(), self.setY())
-       y_3d=np.round(linreg.predict(self.setX3d()), decimals=2)
-       return y_3d
+       y_3d=np.round(linreg.predict(self.setX3d()),2)
+       return type(y_3d)
  
 
     def modelMAE(self):
@@ -51,6 +51,8 @@ class LRegression:
       
 
        
+mydata=LRegression(URL)
+print(mydata.model3d())
 
 
 

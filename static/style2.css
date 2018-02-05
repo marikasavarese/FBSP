@@ -3,14 +3,14 @@ body{
 }
 
 h1 {
-    color :Blue;
+    color :DodgerBlue;
 }
 
 div#prediction{
 text-align: center;
 float:right;
 background:DodgerBlue; 
-width:50%;
+width:30%;
 margin-left:-50%;
 }
 

@@ -1,23 +1,34 @@
-<!doctype html  values=mydata.model3d(), mae=mydata.modelMAE(), score=mydata.modelMAE(), url=Markup(url))
->
+<!doctype html>
 <html>
    <head>
       <script src="https://d3js.org/d3.v4.min.js"></script>
       <link rel="stylesheet" type="text/css" href="{{url_for("static", filename="style2.css") }} ">   
    </head>
    <body>
-      <h1>Facebook stock options </h1>
-      <svg width="820" height="500"></svg>
-      <div id="prediction" width="200">
+      <svg width="620" height="500"></svg>
+      <h1>Facebook stock option prices trend</h1>
+      <div id="prediction">
          <h2>Prediction for next 3 days</h2>
          <div id=day>
-         {% for key0 in 0,1,2%}<p class="dayp"> Day {{key0+1}}: {{values[key0]}}$</p>{% endfor %}
-         <p><b>Mean Average Error: </b> {{mae}} $</p>
-	 <p><b>Variance Score associated to the model : </b>{{score}} </p>
+         {% for value in pred[0] %} <p class="dayp"> Day 1: {{value}} $</p>{% endfor %}
+         {% for value in pred[1] %} <p class="dayp"> Day 2: {{value}} $</p>{% endfor %}
+         {% for value in pred[2] %} <p class="dayp"> Day 3: {{value}} $</p>{% endfor %}
+         {% for value in pred[3] %} <p><b>Mean Average Error: </b> {{value}} $</p>{% endfor %}
+	 {% for value in pred[4] %} <p><b>Variance Score associated to the model : </b>{{value}} </p>{% endfor %}
 	 <p>Explained variance score: 1 is perfect prediction </p>
 	 <p id="note">*Predictions based on the daily closing price</p>
          </div>
       </div>
+      <table border=2>
+            <th class="header"> Date </th>
+            <th class="header"> Closing Price($) </th>
+               {% for key0 in result[0] %} 
+                  <tr> 
+                       <td class="cell">{{ result[1][key0] }} </td> 
+                       <td class="cell">{{ result[2][key0] }} </td> 
+                  </tr>
+               {% endfor %}
+      </table>
 	<script>
 
 		var svg = d3.select("svg"),
@@ -50,18 +61,17 @@
 		  y.domain(d3.extent(data, function(d) { return d.close; }));
 
 		  g.append("g")
-                      .style("font", "16px times") 
 		      .attr("transform", "translate(0," + height + ")")
 		      .call(d3.axisBottom(x))
 		      .append("text")
 		      .attr("fill", "#000")
+		    //.select(".domain")
+		      //.remove();
 
 		  g.append("g")
 		      .call(d3.axisLeft(y))
-		      .append("text")
+		    .append("text")
 		      .attr("fill", "#000")
-		      .attr("font-weight", "bold")
-		      .attr("font-size", "20px")
 		      .attr("transform", "rotate(-90)")
 		      .attr("y", 6)
 		      .attr("dy", "0.71em")
@@ -71,7 +81,7 @@
 		  g.append("path")
 		      .datum(data)
 		      .attr("fill", "none")
-		      .attr("stroke", "DodgerBlue")
+		      .attr("stroke", "steelblue")
 		      .attr("stroke-linejoin", "round")
 		      .attr("stroke-linecap", "round")
 		      .attr("stroke-width", 1.5)

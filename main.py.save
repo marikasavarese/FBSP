@@ -1,6 +1,6 @@
 from flask import * 
 import numpy, pandas, sklearn 
-from model_lin_reg import LRegression 
+from model_lin_reg import regression_model
 from  ImportData import data
 
 #change here URL of CSV file if you want to change data (WARNING check coloumn header in Importdata)
@@ -11,8 +11,8 @@ app = Flask(__name__)
 
 @app.route('/result')
 def result():
-    mydata = LRegression(url)
-    return render_template('result.html', values=mydata.model3d(), mae=mydata.modelMAE(), score=mydata.modelScore(), url=Markup(url))
+    mydata = data(url)
+    return render_template('result.html',  pred=regression_model(), url=Markup(url))
 
 
 @app.route('/table')
