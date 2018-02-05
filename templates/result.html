@@ -11,7 +11,7 @@
       <div id="prediction" width="200">
          <h2>Prediction for next 3 days</h2>
          <div id=day>
-         {% for key0 in 0,1,2%}<p class="dayp"> Day {{key0+1}}: {{values[key0]}}$</p>{% endfor %}
+         {% for key0 in 0,1,2%}<p class="dayp"> Day {{key0+1}}: {{values[key0][0]}}$</p>{% endfor %}
          <p><b>Mean Average Error: </b> {{mae}} $</p>
 	 <p><b>Variance Score associated to the model : </b>{{score}} </p>
 	 <p>Explained variance score: 1 is perfect prediction </p>
